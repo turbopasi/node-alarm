@@ -36,7 +36,7 @@ const alarm = require('./alarm.js');
 
 // Now, whenever an event occurs, which you want to keep track of,
 // you raise the alarm buffer by 1. 
-alarm.add("foo");
+alarm.count("foo");
 
 // If too many event like this occur (> maxEvents) within specified time (timeframe)
 // the alarm will be raised. 
