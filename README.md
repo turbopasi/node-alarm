@@ -1,22 +1,27 @@
-# node-alarm
-Trigger alarm when certain events occur too often in specified timeframe.
+![node-alarm](https://i.imgur.com/VCYTQQx.png)
 
-Register new Alarm with options :
-- name : String 
-- callback function : function which will be called when alarm gets triggered
-- maxEvents : e.g. 10 , how often an event can occur during specified timeframe, before alarm gets triggered
-- timeframe : e.g. 10, timeframe (in seconds) in which maxEvents can occur, before alarm gets triggered
+```js
 
-From the example above, an alarm will be triggered, if the event occurs 10 times within 10 seconds.
+const Alarm = require('node-alarm');
+const alarm = new Alarm();
 
-Additional Options : 
-- once (default false) - if the alarm should only get triggered once or everytime the condition is met
-- beforeTrigger (function) - a callback which will be raised before a alarm gets triggered. 
+const rule = alarm.add({
+  name : "foo",
+  maxEvents : 10,
+  timeframe : 10000
+});
 
-Methods on Alarm : 
-- Start
-- Stop
-- Remove
-- Flush
-- Trigger
-- 
+rule.on('alarm', () => {
+  // Send Notification To Admin, 
+  // Make Log Entry,
+  // Restart Application,
+  // Dynamically Change Value, 
+  // Ignore , ...
+});
+
+alarm.on('alarm', (name) => {
+  console.log(name);
+  // "foo" 
+});
+
+```
