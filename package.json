@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/turbopasi/node-alarm/issues"
   },
-  "homepage": "https://github.com/turbopasi/node-alarm#readme"
+  "homepage": "https://github.com/turbopasi/node-alarm#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
