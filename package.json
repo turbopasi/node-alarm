@@ -1,6 +1,6 @@
 {
   "name": "@turbopasi/node-alarm",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Trigger alarm based on event occurences",
   "main": "index.js",
   "scripts": {
