@@ -3,7 +3,7 @@
 > `node-alarm` is a simple mechanism which can be plugged in almost everywhere in your code. Be it a button click, a request error, the results from a calculation or sensors. The "alarm" will be triggered whenever a certain event occurs too often within specified timeframe. 
 
 
-  ### Example usage : 
+### Example usage : 
 
 ```js
 //alarm.js
@@ -30,8 +30,6 @@ alarm.on('alarm', (rule) => {
 module.exports  = alarm;
 ```
 
-  
-
 ```js
 // any.js
 
@@ -57,4 +55,8 @@ setInterval(() => {
 	alarm.count("foo");
 },2000)
 ```
+
+### Options
+
+`alarm.add( options );`
 
