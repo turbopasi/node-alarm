@@ -8,7 +8,7 @@
 ```js
 //alarm.js
 
-const  Alarm  =  require('node-alarm');
+const  Alarm  =  require('@turbopasi/node-alarm');
 const  alarm  =  new  Alarm();
 
 const  rule  = alarm.add({
@@ -57,6 +57,26 @@ setInterval(() => {
 ```
 
 ### Options
-
-`alarm.add( options );`
+### `alarm.add( options );`
+While adding a new rule to your alarm stack you can specify the following options : 
+```js 
+const options = {
+	name		: 'unique-name', 
+	/* Helps to identify rules after creating multiple rules */ 
+	
+	maxEvents	: 10,
+	/* Maximum allowed amount of event occurences */ 
+	
+	timeframe	: 10000,
+	/* Timeframe in milliseconds which within the maxEvents allowed to occur */ 
+	
+	autoreset	: false,
+	/* If set to false, the alarm keeps triggering as long as conditions are met
+	If set to true, the event count buffer clears onced triggered */
+	
+	once		: false
+	/* If set to false, the alarm keeps triggering every time conditions are met,
+	If set to true, the alarm triggers only once */ 
+};
+```
 
