@@ -17,15 +17,23 @@ function Rule (options) {
 
 }
 
-Rule.prototype.on = function (event, cb) {
+// Register Event Listener
+const eventTypes = ['alarm', 'event'];
+Rule.prototype.on = function (eventType, cb) {
 
-  this.eventEmitter.on(event, cb);
+  if (!eventTypes.includes(eventType)) { throw new Error(`Unknown event type "${eventType}"`); }
+  this.eventEmitter.removeAllListeners(eventType);
+  this.eventEmitter.on(eventType, cb);
 
 }
 
-Rule.prototype.emit = function (event, data) {
-  this.eventEmitter.emit(event, data);
-}
+Rule.prototype.reset = function () {}
+
+Rule.prototype.count = function () {}
+
+// Rule.prototype.emit = function (event, data) {
+//   this.eventEmitter.emit(event, data);
+// }
 
 const rule  = new Rule({});
 const rule2 = new Rule({});
@@ -34,7 +42,14 @@ rule.on('alarm', () => {
   console.log("yay alarm");
 });
 
-rule2.emit('alarm', null);
+rule.on('alarm', () => {
+  console.log("yay alarm 2");
+});
+
+
+rule.emit('alarm')
+
+
 
 
 
